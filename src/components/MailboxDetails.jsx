@@ -7,7 +7,6 @@ const MailboxDetails = (props) => {
     const singleMailbox = props.mailboxes.find((mailbox) => (
         mailbox._id === Number(mailboxId)
     ))
-    console.log('Mailbox Details for singleMailbox: ', singleMailbox)
 
     return (
         <>
