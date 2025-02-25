@@ -44,5 +44,14 @@ textarea {
 }
 
 button {
-  background-color: #535bf2;
+  background-color:cornflowerblue;
+  color: white;
+  border-radius: 10px;
+  border: 0px;
+  padding: 10px;
+  max-width: 100px;
+}
+
+h2 {
+  text-align: left;
 }

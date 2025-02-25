@@ -13,16 +13,26 @@ import MailboxDetails from './components/MailboxDetails'
 
 const App = () => {
 
-  const defaultState = {
-    _id: 1,
-    boxSize: 'Small',
-    boxholder: 'Alex',
-  }
+  const defaultState = [ 
+    { _id: 1,
+      boxSize: 'Small',
+      boxholder: 'Alex'
+    },
+    { _id: 2,
+      boxSize: 'Medium',
+      boxholder: 'David'
+    },
+    { _id: 3,
+      boxSize: 'Large',
+      boxholder: 'Henry'
+    },
+  ];
 
-  const [mailboxes, setMailboxes] = useState([defaultState])
+  const [mailboxes, setMailboxes] = useState(defaultState)
 
-  const addBox = (newMailBox) => {
-    setMailboxes([...mailboxes, newMailBox])
+  const addBox = (formData) => {
+    formData._id = mailboxes.length + 1;
+    setMailboxes([...mailboxes, formData])
   }
 
   return (
@@ -32,7 +42,7 @@ const App = () => {
     <Routes>
       <Route path={'/'} element={<main><h1>Post Office</h1></main>} />
       <Route path={'/mailboxes'} element={ <MailboxList mailboxes={mailboxes}/> }/>
-      <Route path={'/new-mailbox'} element={ <MailboxForm addBox={addBox}/> }/>
+      <Route path={'/new-mailbox'} element={ <MailboxForm addBox={addBox} mailboxes={mailboxes}/> }/>
       <Route path={'/mailboxes/:mailboxId'} element={ <MailboxDetails mailboxes={mailboxes}/> } />
     </Routes>
     </>
